@@ -15,8 +15,19 @@ public class Ticket implements Serializable {
     @SerializedName("totalAmount")
     @Expose
     private String total;
+    @SerializedName("version")
+    @Expose
+    private String version;
 
     public Ticket() {
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     public String getId() {
@@ -49,6 +60,7 @@ public class Ticket implements Serializable {
                 "id='" + id + '\'' +
                 ", dataTime='" + dataTime + '\'' +
                 ", total='" + total + '\'' +
+                ", version='" + version + '\'' +
                 '}';
     }
 }

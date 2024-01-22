@@ -7,15 +7,15 @@ import java.io.Serializable;
 import java.util.List;
 
 public class NamedAPIResourceList {
-    @SerializedName("tickets")
+    @SerializedName("tickets/")
     @Expose
     private List<Ticket> tickets;
-    @SerializedName("detailsTicket")
+    /*@SerializedName("detailsTicket")
     @Expose
     private String detailsTicket;
     @SerializedName("profile")
     @Expose
-    private String profile;
+    private String profile;*/
 
     public NamedAPIResourceList() {
     }
@@ -28,7 +28,7 @@ public class NamedAPIResourceList {
         this.tickets = tickets;
     }
 
-    public String getDetailsTicket() {
+   /* public String getDetailsTicket() {
         return detailsTicket;
     }
 
@@ -42,14 +42,12 @@ public class NamedAPIResourceList {
 
     public void setProfile(String profile) {
         this.profile = profile;
-    }
+    }*/
 
     @Override
     public String toString() {
         return "NamedAPIResourceList{" +
                 "tickets=" + tickets +
-                ", detailsTicket='" + detailsTicket + '\'' +
-                ", profile='" + profile + '\'' +
                 '}';
     }
 }
