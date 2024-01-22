@@ -4,11 +4,12 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.List;
 
-public class NamedAPIResourceList implements Serializable {
+public class NamedAPIResourceList {
     @SerializedName("tickets")
     @Expose
-    private Ticket tickets;
+    private List<Ticket> tickets;
     @SerializedName("detailsTicket")
     @Expose
     private String detailsTicket;
@@ -19,11 +20,11 @@ public class NamedAPIResourceList implements Serializable {
     public NamedAPIResourceList() {
     }
 
-    public Ticket getTickets() {
+    public List<Ticket> getTickets() {
         return tickets;
     }
 
-    public void setTickets(Ticket tickets) {
+    public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
 
