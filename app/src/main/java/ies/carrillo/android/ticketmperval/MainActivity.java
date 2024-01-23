@@ -24,27 +24,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       ListView lvTicket = findViewById(R.id.LvTicket);
+        ListView lvTicket = findViewById(R.id.LvTicket);
 
         GoldenRaceApiService goldenRaceApiService = GoldenRaceApiClient.getClient().create(GoldenRaceApiService.class);
 
-        Call<NamedAPIResourceList> ticketCall = goldenRaceApiService.getTicket();
+        Call ticketCall = goldenRaceApiService.getTicket();
 
         ticketCall.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                NamedAPIResourceList namedAPIResourceList = (NamedAPIResourceList) response.body();
 
-                List<Ticket> ticketList = namedAPIResourceList.getTickets();
+                List<Ticket> ticketList = (List<Ticket>) response.body();
 
                 AdapterTicket adapterTicket = new AdapterTicket(MainActivity.this, ticketList);
-
                 lvTicket.setAdapter(adapterTicket);
-
-                for (Ticket ti :
-                        namedAPIResourceList.getTickets()) {
-                    Log.i("Tickets", ti.toString());
-                }
             }
 
             @Override
