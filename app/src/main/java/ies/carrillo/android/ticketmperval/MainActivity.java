@@ -2,6 +2,7 @@ package ies.carrillo.android.ticketmperval;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -10,7 +11,6 @@ import java.util.List;
 
 import Adapters.AdapterTicket;
 import client.GoldenRaceApiClient;
-import models.NamedAPIResourceList;
 import models.Ticket;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call call, Throwable t) {
                 Log.e("Error", "The resquest cloud not be made");
             }
+        });
+        lvTicket.setOnItemClickListener((parent, view, position, id) -> {
+            Ticket ticket = (Ticket) parent.getItemAtPosition(position);
+
+            Intent intent = new Intent(MainActivity.this, DetailsTicket.class);
+            intent.putExtra("ticket", ticket);
+            startActivity(intent);
         });
     }
 }

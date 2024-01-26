@@ -2,10 +2,12 @@ package service;
 
 import java.util.List;
 
-import models.NamedAPIResourceList;
+import models.DetailsTicket;
 import models.Ticket;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface GoldenRaceApiService {
     /**
@@ -16,17 +18,11 @@ public interface GoldenRaceApiService {
     @GET("api/tickets")
     Call<List<Ticket>> getTicket();
     /**
-     * Obtiene detalles de un ticket.
+     * Obtiene los detalles de un ticket específico.
      *
-     *  @return Un objeto {@code Call} que representa la solicitud API para obtener detalles de un ticket.
+     * @param id El identificador único del ticket.
+     * @return Una llamada asíncrona {@code Call} que devolverá los detalles del ticket.
      */
-    @GET("detailsTicket")
-    Call<NamedAPIResourceList> getDetailsTicket();
-    /**
-     * Obtiene la información de perfil relacionada con los tickets.
-     *
-     * @return Un objeto {@code Call} que representa la solicitud API para obtener información de perfil de tickets.
-     */
-    @GET("profile")
-    Call<NamedAPIResourceList> getProfileTicket();
+    @GET("/tickets/{id}/detailsTickets")
+    Call<List<DetailsTicket>> getDetailsTicket(@Path("id") String id);
 }
