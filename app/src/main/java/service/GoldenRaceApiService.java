@@ -23,6 +23,6 @@ public interface GoldenRaceApiService {
      * @param id El identificador único del ticket.
      * @return Una llamada asíncrona {@code Call} que devolverá los detalles del ticket.
      */
-    @GET("/tickets/{id}/detailsTickets")
+    @GET("tickets/{id}/detailsTickets")
     Call<List<DetailsTicket>> getDetailsTicket(@Path("id") String id);
 }
