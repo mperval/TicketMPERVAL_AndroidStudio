@@ -15,6 +15,9 @@
         android:theme="@style/Theme.TicketMPERVAL"
         tools:targetApi="31">
         <activity
+            android:name=".DeleteTicket"
+            android:exported="false" />
+        <activity
             android:name=".PutTicket"
             android:exported="false" />
         <activity

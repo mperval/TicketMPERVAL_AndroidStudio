@@ -6,6 +6,7 @@ import models.Details;
 import models.Ticket;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -46,5 +47,15 @@ public interface GoldenRaceApiService {
      */
     @PUT("api/ticket/{id}")
     Call<Ticket> putTicket(@Path("id") int ticketId, @Body Ticket ticket);
+
+    /**
+     * Elimina un ticket del servidor.
+     *
+     * @param ticketId El ID del ticket que se eliminará.
+     * @return Una llamada de Retrofit sin cuerpo de respuesta, indicando éxito o fallo.
+     */
+    @DELETE("api/ticket/{id}")
+    Call<Void> deleteTicket(@Path("id") int ticketId);
+
 
 }

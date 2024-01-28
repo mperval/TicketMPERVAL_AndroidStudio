@@ -31,6 +31,7 @@ public class DetailsTicket extends AppCompatActivity {
         setContentView(R.layout.details_ticket);
 
         Button btnUpdate = findViewById(R.id.btnUpdate);
+        Button btnDelete = findViewById(R.id.btnDelete);
         TextView id = findViewById(R.id.tvIdDetails);
         TextView date = findViewById(R.id.tvDateDetils);
         TextView total = findViewById(R.id.tvTotal);
@@ -95,6 +96,12 @@ public class DetailsTicket extends AppCompatActivity {
             Intent intent1 = new Intent(DetailsTicket.this, PutTicket.class);
             intent1.putExtra("PutTicket", ticket);
             startActivity(intent1);
+        });
+        /**
+         * elimina el ticket
+         */
+        btnDelete.setOnClickListener(v -> {
+
         });
     }
 }
