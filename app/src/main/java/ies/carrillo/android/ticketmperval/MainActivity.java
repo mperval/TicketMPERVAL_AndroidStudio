@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.List;
@@ -23,8 +24,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //List
         ListView lvTicket = findViewById(R.id.LvTicket);
+        //Boton
+        Button btnAddTicket = findViewById(R.id.btnAddTicket);
 
         GoldenRaceApiService goldenRaceApiService = GoldenRaceApiClient.getClient().create(GoldenRaceApiService.class);
 
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         ticketCall.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-
+                Log.i("RESPONSE", response.toString());
                 List<Ticket> ticketList = (List<Ticket>) response.body();
 
                 AdapterTicket adapterTicket = new AdapterTicket(MainActivity.this, ticketList);
@@ -45,11 +48,17 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Error", "The resquest cloud not be made");
             }
         });
+        //ListView
         lvTicket.setOnItemClickListener((parent, view, position, id) -> {
             Ticket ticket = (Ticket) parent.getItemAtPosition(position);
 
             Intent intent = new Intent(MainActivity.this, DetailsTicket.class);
             intent.putExtra("ticket", ticket);
+            startActivity(intent);
+        });
+        //Boton
+        btnAddTicket.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PostTicket.class);
             startActivity(intent);
         });
     }

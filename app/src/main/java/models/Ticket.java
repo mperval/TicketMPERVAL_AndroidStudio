@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Ticket implements Serializable {
     @SerializedName("id")
     @Expose
-    private String id;
+    private Integer id;
     @SerializedName("creationDate")
     @Expose
     private String dataTime;
@@ -30,11 +30,11 @@ public class Ticket implements Serializable {
         this.version = version;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

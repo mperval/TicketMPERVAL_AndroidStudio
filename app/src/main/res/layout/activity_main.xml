@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:orientation="vertical"
@@ -18,4 +19,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAddTicket"
+        android:layout_width="107dp"
+        android:layout_height="63dp"
+        android:backgroundTint="@color/black"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

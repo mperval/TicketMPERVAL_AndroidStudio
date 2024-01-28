@@ -10,8 +10,7 @@ public class Details implements Serializable {
     private String description;
     @SerializedName("amount")
     @Expose
-    private String amount;
-
+    private Double amount;
     public Details() {
     }
 
@@ -23,17 +22,17 @@ public class Details implements Serializable {
         this.description = description;
     }
 
-    public String getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
     @Override
     public String toString() {
-        return "DetailsTicket{" +
+        return "Details{" +
                 "description='" + description + '\'' +
                 ", amount='" + amount + '\'' +
                 '}';
