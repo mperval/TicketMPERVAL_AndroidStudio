@@ -30,8 +30,8 @@ public class AdapterDetails extends ArrayAdapter<Details> {
         TextView description = convertView.findViewById(R.id.tvDescription);
         TextView amount = convertView.findViewById(R.id.tvAmount);
 
-        description.setText(details.getDescription());
-        amount.setText(String.valueOf(details.getAmount()));
+        description.setText("Description: " + details.getDescription());
+        amount.setText("Total: " + String.valueOf(details.getAmount()));
 
         return convertView;
     }

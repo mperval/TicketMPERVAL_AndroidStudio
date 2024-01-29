@@ -34,6 +34,7 @@ public class DetailsTicket extends AppCompatActivity {
 
         Button btnUpdate = findViewById(R.id.btnUpdate);
         Button btnDelete = findViewById(R.id.btnDelete);
+
         TextView id = findViewById(R.id.tvIdDetails);
         TextView date = findViewById(R.id.tvDateDetils);
         TextView total = findViewById(R.id.tvTotal);
@@ -45,24 +46,26 @@ public class DetailsTicket extends AppCompatActivity {
 
         Ticket ticket = (Ticket) intent.getSerializableExtra("ticket");
         Integer idTicket = ticket.getId();
-
+        //Inserccion de datos en los EdiTex
         id.setText(String.valueOf(ticket.getId()));
         date.setText(ticket.getDataTime());
         total.setText(ticket.getTotal());
         version.setText(ticket.getVersion());
         Log.i("Id TICKET", String.valueOf(ticket.getId()));
 
-        //Muestro en un ListView la lista de detalles del ticket atraves del id.
+        //LLamada al servicio y le paso el id del Ticket.
         GoldenRaceApiService goldenRaceApiService = GoldenRaceApiClient.getClient().create(GoldenRaceApiService.class);
-
         Call<List<Details>> detailTicketCall = goldenRaceApiService.getDetailsTicket(idTicket);
 
+        /**
+         * Recojo todos los detalles del ticket y los muestro en un ListView.
+         */
         detailTicketCall.enqueue(new Callback<List<Details>>() {
             @Override
             public void onResponse(Call<List<Details>> call, Response<List<Details>> response) {
 
                 if (response.isSuccessful()) {
-                    List<Details> detailsList = (List<Details>) response.body();
+                    List<Details> detailsList = response.body();
 
                     if (detailsList != null) {
                         // Adaptador.
@@ -85,11 +88,11 @@ public class DetailsTicket extends AppCompatActivity {
 
             }
         });
-        //Aqui es subida de notas.
+        //TODO Aqui es subida de notas.
         lvTicketDetails.setOnItemClickListener(((parent, view, position, id1) -> {
             Details details = (Details) parent.getItemAtPosition(position);
 
-            //Intent intent1 = new Intent(DetailsTicket.this, )
+
         }));
         /**
          * Actualizacion del ticket
@@ -103,14 +106,14 @@ public class DetailsTicket extends AppCompatActivity {
          * elimina el ticket
          */
         btnDelete.setOnClickListener(v -> {
-            // Creo un cuadro de dialogo de confirmacion
+            // Creo un cuadro de dialogo de confirmacion.
             AlertDialog.Builder builder = new AlertDialog.Builder(DetailsTicket.this);
             builder.setTitle("Confirmar eliminación");
             builder.setMessage("¿Estás seguro de que deseas eliminar este ticket?");
 
             // Configurar los botones del cuadro de dialogo
             builder.setPositiveButton("Si", (dialog, which) -> {
-                // Si el usuario hace clic en "Si", proceder con la eliminación del ticket
+                // Si el usuario hace clic en "Si", procedo con la eliminacion del ticket
                 Call<Void> deleteTicket = goldenRaceApiService.deleteTicket(idTicket);
 
                 deleteTicket.enqueue(new Callback<Void>() {

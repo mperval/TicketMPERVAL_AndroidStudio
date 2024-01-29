@@ -31,18 +31,22 @@ public class PostTicket extends AppCompatActivity {
 
         Ticket ticket = new Ticket();
 
+        //Formateo de fecha para añadir DataTime al ticket
         LocalDateTime now = LocalDateTime.now();
         String pattern = "dd/MM/yyyy HH:mm:ss";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
         String formatedDate = now.format(formatter);
 
+        //Inicializacion del servicio
         GoldenRaceApiService goldenRaceApiService = GoldenRaceApiClient.getClient().create(GoldenRaceApiService.class);
 
+        //Botn añadir ticket
         btnInsert.setOnClickListener(v -> {
             ticket.setId(0);
             ticket.setDataTime(formatedDate);
             ticket.setTotal(String.valueOf(etPrecio.getText()));
 
+            //Llamada al servicio para añadir ticket
             Call<Ticket> postTicket = goldenRaceApiService.postTicket(ticket);
 
             postTicket.enqueue(new Callback<Ticket>() {

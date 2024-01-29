@@ -28,11 +28,12 @@ public class MainActivity extends AppCompatActivity {
         ListView lvTicket = findViewById(R.id.LvTicket);
         //Boton
         Button btnAddTicket = findViewById(R.id.btnAddTicket);
-
+        //Inicializo el servicio y hago la llamada
         GoldenRaceApiService goldenRaceApiService = GoldenRaceApiClient.getClient().create(GoldenRaceApiService.class);
-
-        Call ticketCall = goldenRaceApiService.getTicket();
-
+        Call<List<Ticket>> ticketCall = goldenRaceApiService.getTicket();
+        /**
+         * Recoge todos los tickets
+         */
         ticketCall.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 AdapterTicket adapterTicket = new AdapterTicket(MainActivity.this, ticketList);
                 lvTicket.setAdapter(adapterTicket);
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 Log.e("Error", "The resquest cloud not be made");
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("ticket", ticket);
             startActivity(intent);
         });
-        //Boton
+        //Boton añadir.
         btnAddTicket.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, PostTicket.class);
             startActivity(intent);

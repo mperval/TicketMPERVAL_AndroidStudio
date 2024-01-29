@@ -35,21 +35,28 @@ public class PutTicket extends AppCompatActivity {
         TextView TotalAmountPut = findViewById(R.id.tvTotalAmountPut);
         Button btnUpdatePut = findViewById(R.id.btnUpdatePut);
 
+        //Recogida del objeto de la clase MainActivity
         Intent intent = getIntent();
         Ticket ticket = (Ticket) intent.getSerializableExtra("PutTicket");
 
+        //Inicializo el servicio.
         GoldenRaceApiService goldenRaceApiService = GoldenRaceApiClient.getClient().create(GoldenRaceApiService.class);
 
+        //inserto los datos al los editText
         id.setText(String.valueOf(ticket.getId()));
         date.setText(ticket.getDataTime());
         version.setText(ticket.getVersion());
         TotalAmountPut.setText(ticket.getTotal());
 
+        // Parseo la fecha para cuando se ha actualizado por ultima vez
         LocalDateTime now = LocalDateTime.now();
         String pattern = "dd/MM/yyyy HH:mm:ss";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
         String formatedDate = now.format(formatter);
 
+        /**
+         * Hago la llamada pasandole tambien el IdTicket.
+         */
         btnUpdatePut.setOnClickListener(v -> {
             ticket.setTotal(String.valueOf(total.getText()));
             ticket.setDataTime(formatedDate);
@@ -69,6 +76,7 @@ public class PutTicket extends AppCompatActivity {
                     Log.e("Error", "The resquest cloud not be made");
                 }
             });
+            //Lo llevo al main cuando es actualizado.
             Intent intent1 = new Intent(PutTicket.this, MainActivity.class);
             intent1.putExtra("PutTicket", ticket);
             Toast.makeText(getApplicationContext(), "TICKET ACTUALIZADO CORRECTAMENTE ", Toast.LENGTH_SHORT).show();
