@@ -92,6 +92,7 @@ public class DetailsTicket extends AppCompatActivity {
         lvTicketDetails.setOnItemClickListener(((parent, view, position, id1) -> {
             Details details = (Details) parent.getItemAtPosition(position);
 
+            //Intent intent1 = new Intent(DetailsTicket.this, DetailsDetail.class);
 
         }));
         /**
