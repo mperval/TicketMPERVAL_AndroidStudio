@@ -1,7 +1,9 @@
 package ies.carrillo.android.ticketmperval;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -101,24 +103,45 @@ public class DetailsTicket extends AppCompatActivity {
          * elimina el ticket
          */
         btnDelete.setOnClickListener(v -> {
-            Call<Void> deleteTicket = goldenRaceApiService.deleteTicket(idTicket);
+            // Creo un cuadro de dialogo de confirmacion
+            AlertDialog.Builder builder = new AlertDialog.Builder(DetailsTicket.this);
+            builder.setTitle("Confirmar eliminación");
+            builder.setMessage("¿Estás seguro de que deseas eliminar este ticket?");
 
-            deleteTicket.enqueue(new Callback<Void>() {
-                @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
-                    if(response.isSuccessful()){
-                        Toast.makeText(getApplicationContext(), "Ticket eliminado con éxito", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(getApplicationContext(), "Error al eliminar el ticket. Código: " + response.code(), Toast.LENGTH_SHORT).show();
+            // Configurar los botones del cuadro de dialogo
+            builder.setPositiveButton("Si", (dialog, which) -> {
+                // Si el usuario hace clic en "Si", proceder con la eliminación del ticket
+                Call<Void> deleteTicket = goldenRaceApiService.deleteTicket(idTicket);
+
+                deleteTicket.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        if(response.isSuccessful()){
+                            Toast.makeText(getApplicationContext(), "Ticket eliminado con éxito", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Error al eliminar el ticket. Código: " + response.code(), Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "Error al eliminar el ticket. Verifica tu conexión a internet", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                // Despues de eliminar el ticket, iniciar la actividad principal
+                Intent intent2 = new Intent(DetailsTicket.this, MainActivity.class);
+                startActivity(intent2);
+            });
+
+            // Si el usuario hace clic en "No", simplemente cierro el cuadro de dialogo
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                 @Override
-                public void onFailure(Call<Void> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(), "Error al eliminar el ticket. Verifica tu conexión a internet", Toast.LENGTH_SHORT).show();
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
                 }
             });
-            Intent intent2 = new Intent(DetailsTicket.this, MainActivity.class);
-            startActivity(intent2);
+            // Mostrar el cuadro de diálogo
+            builder.show();
         });
     }
 }

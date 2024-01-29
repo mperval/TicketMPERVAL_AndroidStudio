@@ -22,6 +22,10 @@
             android:id="@+id/tvPrecio"
             android:layout_width="match_parent"
             android:layout_height="54dp"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:text="Inserte precio" />
 
         <EditText
@@ -30,6 +34,10 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Precio:"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:inputType="text" />
 
         <TextView
@@ -41,6 +49,11 @@
             android:id="@+id/btnInsert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/black"
             android:text="Insertar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

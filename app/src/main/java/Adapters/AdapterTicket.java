@@ -32,9 +32,9 @@ public class AdapterTicket extends ArrayAdapter<Ticket> {
         TextView dataTime = convertView.findViewById(R.id.tvDate);
         TextView total = convertView.findViewById(R.id.tvTotal);
 
-        id.setText(String.valueOf(ticket.getId()));
-        dataTime.setText(ticket.getDataTime());
-        total.setText(ticket.getTotal());
+        id.setText("Id: " + String.valueOf(ticket.getId()));
+        dataTime.setText("Fecha: " + ticket.getDataTime());
+        total.setText("Total: " + ticket.getTotal());
 
         return convertView;
     }

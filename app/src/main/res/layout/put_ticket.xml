@@ -17,30 +17,61 @@
             android:id="@+id/tvIdDetailsPut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:text="id" />
 
         <TextView
             android:id="@+id/tvDateDetilsPut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:text="Date" />
 
         <TextView
             android:id="@+id/tvVersionPut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="version" />
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:text="version"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTotalAmountPut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:text="Total"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etTotalPut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Indique el precio: " />
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:hint="Indique el nuevo precio: "
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnUpdatePut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/black"
             android:text="Actualizar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

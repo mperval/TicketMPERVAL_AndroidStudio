@@ -32,6 +32,7 @@ public class PutTicket extends AppCompatActivity {
         TextView date = findViewById(R.id.tvDateDetilsPut);
         EditText total = findViewById(R.id.etTotalPut);
         TextView version = findViewById(R.id.tvVersionPut);
+        TextView TotalAmountPut = findViewById(R.id.tvTotalAmountPut);
         Button btnUpdatePut = findViewById(R.id.btnUpdatePut);
 
         Intent intent = getIntent();
@@ -42,7 +43,7 @@ public class PutTicket extends AppCompatActivity {
         id.setText(String.valueOf(ticket.getId()));
         date.setText(ticket.getDataTime());
         version.setText(ticket.getVersion());
-        total.setText(ticket.getTotal());
+        TotalAmountPut.setText(ticket.getTotal());
 
         LocalDateTime now = LocalDateTime.now();
         String pattern = "dd/MM/yyyy HH:mm:ss";

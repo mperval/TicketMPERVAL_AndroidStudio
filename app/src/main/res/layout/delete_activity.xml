@@ -17,30 +17,51 @@
             android:id="@+id/tvIdDetailsDe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:text="id" />
 
         <TextView
             android:id="@+id/tvDateDetilsDe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:text="Date" />
 
         <TextView
             android:id="@+id/tvTotalDe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:text="Total" />
 
         <TextView
             android:id="@+id/tvVersionDe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:text="version" />
 
         <Button
             android:id="@+id/btnDeleteDe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/black"
             android:text="Borrar" />
 
     </LinearLayout>

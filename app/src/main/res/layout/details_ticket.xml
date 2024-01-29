@@ -18,24 +18,40 @@
             android:id="@+id/tvIdDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:text="id" />
 
         <TextView
             android:id="@+id/tvDateDetils"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Date" />
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:text="Date"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:text="Total" />
 
         <TextView
             android:id="@+id/tvVersion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:text="version" />
 
         <ListView

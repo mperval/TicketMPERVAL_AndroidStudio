@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="388dp"
-        android:layout_height="68dp"
+        android:layout_width="384dp"
+        android:layout_height="147dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="12dp"
         tools:layout_editor_absoluteY="1dp">
@@ -15,18 +15,30 @@
             android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description" />
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:text="Description"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Amount" />
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:text="Amount"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="id" />
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:text="id"
+            android:textSize="34sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
