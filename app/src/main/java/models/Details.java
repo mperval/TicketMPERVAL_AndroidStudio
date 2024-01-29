@@ -11,7 +11,29 @@ public class Details implements Serializable {
     @SerializedName("amount")
     @Expose
     private Double amount;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("ticketId")
+    @Expose
+    private Integer ticketId;
     public Details() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getTicketId() {
+        return ticketId;
+    }
+
+    public void setTicketId(Integer ticketId) {
+        this.ticketId = ticketId;
     }
 
     public String getDescription() {
@@ -34,7 +56,9 @@ public class Details implements Serializable {
     public String toString() {
         return "Details{" +
                 "description='" + description + '\'' +
-                ", amount='" + amount + '\'' +
+                ", amount=" + amount +
+                ", id=" + id +
+                ", ticketId=" + ticketId +
                 '}';
     }
 }

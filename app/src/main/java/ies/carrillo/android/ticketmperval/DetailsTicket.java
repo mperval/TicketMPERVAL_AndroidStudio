@@ -35,6 +35,7 @@ public class DetailsTicket extends AppCompatActivity {
         Button btnUpdate = findViewById(R.id.btnUpdate);
         Button btnDelete = findViewById(R.id.btnDelete);
         Button btnAtras = findViewById(R.id.btnAtras);
+        Button btnAniadir = findViewById(R.id.btnAniadir);
 
         TextView id = findViewById(R.id.tvIdDetails);
         TextView date = findViewById(R.id.tvDateDetils);
@@ -93,7 +94,9 @@ public class DetailsTicket extends AppCompatActivity {
         lvTicketDetails.setOnItemClickListener(((parent, view, position, id1) -> {
             Details details = (Details) parent.getItemAtPosition(position);
 
-            //Intent intent1 = new Intent(DetailsTicket.this, DetailsDetail.class);
+            Intent intent1 = new Intent(DetailsTicket.this, DetailsDetail.class);
+            intent1.putExtra("details", details);
+            startActivity(intent1);
 
         }));
         /**
@@ -146,6 +149,10 @@ public class DetailsTicket extends AppCompatActivity {
         btnAtras.setOnClickListener(v -> {
             Intent intent2 = new Intent(DetailsTicket.this, MainActivity.class);
             startActivity(intent2);
+        });
+        //TODO añadir detalle del ticket
+        btnAniadir.setOnClickListener(v -> {
+
         });
     }
 }

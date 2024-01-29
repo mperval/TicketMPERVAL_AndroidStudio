@@ -57,5 +57,7 @@ public interface GoldenRaceApiService {
     @DELETE("api/ticket/{id}")
     Call<Void> deleteTicket(@Path("id") int ticketId);
 
+    @PUT("api2/detailTickets/{id}")
+    Call<Details> putDetail(@Path("id") int detailId);
 
 }
