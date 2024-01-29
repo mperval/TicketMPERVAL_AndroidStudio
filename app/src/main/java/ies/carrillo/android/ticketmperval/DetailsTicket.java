@@ -34,6 +34,7 @@ public class DetailsTicket extends AppCompatActivity {
 
         Button btnUpdate = findViewById(R.id.btnUpdate);
         Button btnDelete = findViewById(R.id.btnDelete);
+        Button btnAtras = findViewById(R.id.btnAtras);
 
         TextView id = findViewById(R.id.tvIdDetails);
         TextView date = findViewById(R.id.tvDateDetils);
@@ -138,14 +139,13 @@ public class DetailsTicket extends AppCompatActivity {
             });
 
             // Si el usuario hace clic en "No", simplemente cierro el cuadro de dialogo
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
+            builder.setNegativeButton("No", (dialog, which) -> dialog.dismiss());
             // Mostrar el cuadro de diálogo
             builder.show();
+        });
+        btnAtras.setOnClickListener(v -> {
+            Intent intent2 = new Intent(DetailsTicket.this, MainActivity.class);
+            startActivity(intent2);
         });
     }
 }

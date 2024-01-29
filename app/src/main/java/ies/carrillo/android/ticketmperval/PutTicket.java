@@ -34,6 +34,7 @@ public class PutTicket extends AppCompatActivity {
         TextView version = findViewById(R.id.tvVersionPut);
         TextView TotalAmountPut = findViewById(R.id.tvTotalAmountPut);
         Button btnUpdatePut = findViewById(R.id.btnUpdatePut);
+        Button btnAtrasPut = findViewById(R.id.btnAtrasPut);
 
         //Recogida del objeto de la clase MainActivity
         Intent intent = getIntent();
@@ -80,6 +81,10 @@ public class PutTicket extends AppCompatActivity {
             Intent intent1 = new Intent(PutTicket.this, MainActivity.class);
             intent1.putExtra("PutTicket", ticket);
             Toast.makeText(getApplicationContext(), "TICKET ACTUALIZADO CORRECTAMENTE ", Toast.LENGTH_SHORT).show();
+            startActivity(intent1);
+        });
+        btnAtrasPut.setOnClickListener(v -> {
+            Intent intent1 = new Intent(PutTicket.this, MainActivity.class);
             startActivity(intent1);
         });
     }

@@ -56,4 +56,15 @@
             android:backgroundTint="@color/black"
             android:text="Insertar" />
     </LinearLayout>
+    <Button
+        android:id="@+id/btnAtrasPost"
+        android:layout_width="176dp"
+        android:layout_height="69dp"
+        android:text="Atras"
+        android:fontFamily="cursive"
+        android:foregroundTint="#012B03"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

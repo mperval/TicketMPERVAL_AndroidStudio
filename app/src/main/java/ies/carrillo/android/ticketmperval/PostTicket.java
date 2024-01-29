@@ -27,6 +27,7 @@ public class PostTicket extends AppCompatActivity {
         setContentView(R.layout.post_ticket);
 
         Button btnInsert = findViewById(R.id.btnInsert);
+        Button btnAtrasPost = findViewById(R.id.btnAtrasPost);
         EditText etPrecio = findViewById(R.id.etPrecio);
 
         Ticket ticket = new Ticket();
@@ -66,6 +67,10 @@ public class PostTicket extends AppCompatActivity {
             Intent intent = new Intent(PostTicket.this, MainActivity.class);
             intent.putExtra("PostTicket", ticket);
             Toast.makeText(getApplicationContext(), "TICKET INSERTADO CORRECTAMENTE ", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+        });
+        btnAtrasPost.setOnClickListener(v -> {
+            Intent intent = new Intent(PostTicket.this, MainActivity.class);
             startActivity(intent);
         });
     }
