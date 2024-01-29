@@ -101,7 +101,24 @@ public class DetailsTicket extends AppCompatActivity {
          * elimina el ticket
          */
         btnDelete.setOnClickListener(v -> {
+            Call<Void> deleteTicket = goldenRaceApiService.deleteTicket(idTicket);
 
+            deleteTicket.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    if(response.isSuccessful()){
+                        Toast.makeText(getApplicationContext(), "Ticket eliminado con éxito", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Error al eliminar el ticket. Código: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Error al eliminar el ticket. Verifica tu conexión a internet", Toast.LENGTH_SHORT).show();
+                }
+            });
+            Intent intent2 = new Intent(DetailsTicket.this, MainActivity.class);
+            startActivity(intent2);
         });
     }
 }
