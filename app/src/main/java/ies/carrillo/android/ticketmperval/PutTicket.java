@@ -84,8 +84,8 @@ public class PutTicket extends AppCompatActivity {
             startActivity(intent1);
         });
         btnAtrasPut.setOnClickListener(v -> {
-            Intent intent1 = new Intent(PutTicket.this, MainActivity.class);
-            startActivity(intent1);
+            Intent intent2 = new Intent(PutTicket.this, MainActivity.class);
+            startActivity(intent2);
         });
     }
 }

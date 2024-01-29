@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Ticket implements Serializable {
     @SerializedName("id")
@@ -18,6 +19,16 @@ public class Ticket implements Serializable {
     @SerializedName("version")
     @Expose
     private String version;
+
+    private List<Details> detailsList;
+
+    public List<Details> getDetailsList() {
+        return detailsList;
+    }
+
+    public void setDetailsList(List<Details> detailsList) {
+        this.detailsList = detailsList;
+    }
 
     public Ticket() {
     }
@@ -57,10 +68,11 @@ public class Ticket implements Serializable {
     @Override
     public String toString() {
         return "Ticket{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", dataTime='" + dataTime + '\'' +
                 ", total='" + total + '\'' +
                 ", version='" + version + '\'' +
+                ", detailsList=" + detailsList +
                 '}';
     }
 }

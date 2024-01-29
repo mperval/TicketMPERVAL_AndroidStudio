@@ -17,7 +17,19 @@ public class Details implements Serializable {
     @SerializedName("ticketId")
     @Expose
     private Integer ticketId;
+    @SerializedName("ticket")
+    @Expose
+    private Ticket ticket;
+
     public Details() {
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 
     public Integer getId() {
@@ -59,6 +71,7 @@ public class Details implements Serializable {
                 ", amount=" + amount +
                 ", id=" + id +
                 ", ticketId=" + ticketId +
+                ", ticket=" + ticket +
                 '}';
     }
 }

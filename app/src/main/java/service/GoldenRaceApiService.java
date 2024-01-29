@@ -57,7 +57,13 @@ public interface GoldenRaceApiService {
     @DELETE("api/ticket/{id}")
     Call<Void> deleteTicket(@Path("id") int ticketId);
 
-    @PUT("api2/detailTickets/{id}")
-    Call<Details> putDetail(@Path("id") int detailId);
+    @PUT("api2/detailTicket/{id}")
+    Call<Details> putDetail(@Path("id") int detailId, @Body Details details);
+
+    @POST("api2/detailTicket/")
+    Call<Details> postDetail(@Body Details detailsTicket);
+
+    @DELETE("api2/detailTicket/{id}")
+    Call<Void> deleteDetail(@Path("id") int detailId);
 
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostDetail">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="111dp"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:text="Agregar detalles"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etDescriptionPD"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:hint="Description"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etTotalPD"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:fontFamily="cursive"
+            android:foregroundTint="#012B03"
+            android:hint="Total"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAgregarPD"
+        android:layout_width="196dp"
+        android:layout_height="63dp"
+        android:backgroundTint="@color/details"
+        android:layout_margin="110dp"
+        android:fontFamily="cursive"
+        android:foregroundTint="#012B03"
+        android:text="Agregar"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout3" />
+
+    <Button
+        android:id="@+id/btnAtrasDDD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atras"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:fontFamily="cursive"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAgregarPD" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

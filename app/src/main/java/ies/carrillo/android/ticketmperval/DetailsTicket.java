@@ -3,7 +3,6 @@ package ies.carrillo.android.ticketmperval;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
+import java.util.Objects;
 
 import client.GoldenRaceApiClient;
 import models.Ticket;
@@ -48,11 +48,13 @@ public class DetailsTicket extends AppCompatActivity {
 
         Ticket ticket = (Ticket) intent.getSerializableExtra("ticket");
         Integer idTicket = ticket.getId();
+
         //Inserccion de datos en los EdiTex
         id.setText(String.valueOf(ticket.getId()));
         date.setText(ticket.getDataTime());
         total.setText(ticket.getTotal());
         version.setText(ticket.getVersion());
+
         Log.i("Id TICKET", String.valueOf(ticket.getId()));
 
         //LLamada al servicio y le paso el id del Ticket.
@@ -90,12 +92,12 @@ public class DetailsTicket extends AppCompatActivity {
 
             }
         });
-        //TODO Aqui es subida de notas.
         lvTicketDetails.setOnItemClickListener(((parent, view, position, id1) -> {
             Details details = (Details) parent.getItemAtPosition(position);
 
             Intent intent1 = new Intent(DetailsTicket.this, DetailsDetail.class);
             intent1.putExtra("details", details);
+            intent1.putExtra("ticket", ticket);
             startActivity(intent1);
 
         }));
@@ -150,9 +152,10 @@ public class DetailsTicket extends AppCompatActivity {
             Intent intent2 = new Intent(DetailsTicket.this, MainActivity.class);
             startActivity(intent2);
         });
-        //TODO añadir detalle del ticket
         btnAniadir.setOnClickListener(v -> {
-
+            Intent intent1 = new Intent(DetailsTicket.this, PostDetail.class);
+            intent1.putExtra("ticket", ticket);
+            startActivity(intent1);
         });
     }
 }
